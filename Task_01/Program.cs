@@ -14,5 +14,3 @@ else
 {
     Console.WriteLine($"Число {num1} не являеется квадратом числа {num2}");
 }
-// int square = num * num;
-// Console.Write($"Квадрат числа {num} = {square}");
