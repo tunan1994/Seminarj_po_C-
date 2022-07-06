@@ -15,7 +15,7 @@
 // Console.WriteLine("Количество цифр введенного числа :{0}", i);
 
 
-Console.WriteLine("Введите число: ");
+Console.WriteLine("Введите число N: ");
 int num = Convert.ToInt32(Console.ReadLine());
 num = Math.Abs(num);
 int Count(int number)
