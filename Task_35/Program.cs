@@ -7,41 +7,29 @@
 // [1, 2, 3, 6, 2] -> 0
 // [10, 11, 12, 13, 14] -> 5
 
-Console.Write("Введите длинну массива: ");
-int sizeArr = int.Parse(Console.ReadLine());
-
-Console.Write("Введите минимальное значение элементов массива: ");
-int minimal = int.Parse(Console.ReadLine());
-
-Console.Write("Введите максимальное значение элементов массива: ");
-int maximum = int.Parse(Console.ReadLine());
-
-int[] CreateArrayRndInt(int size, int min, int max)
+int[] array = new int[123];
+void Array(int[] massivRND)
 {
-    int[] arr = new int[size];
-    Random rnd = new Random();
-
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < massivRND.Length; i++)
     {
-        arr[i] = rnd.Next(min, max + 1);
+        massivRND[i] = new Random().Next(0, 1000);
     }
-    return arr;
 }
 
-int FindNums (int[] arr)
+int HowManyNumb (int[] arr)
 {
-int count = 0;
+    int numb = 0;
     for (int i = 0; i < arr.Length; i++)
     {
-        if (arr[i] >= 10 && arr[i] <= 99)
+        if (arr[i] > 9 && arr[i] < 100)
         {
-            count += 1;
+            numb = numb + 1;
         }
     }
-    return count;
+    return numb;
 }
 
-void PrintArray (int[] arr)
+void Print(int[] arr)
 {
     for (int i = 0; i < arr.Length; i++)
     {
@@ -52,8 +40,8 @@ void PrintArray (int[] arr)
     }
 }
 
-int[] array = CreateArrayRndInt (sizeArr, minimal, maximum);
-int count = FindNums(array);
-PrintArray(array);
+Array(array);
+Print(array);
 Console.WriteLine();
-Console.WriteLine($"Количество элементов массива, значения которых лежат в отрезке [10,99]: {count}");
+int howManyNumb = HowManyNumb(array);
+Console.WriteLine($"Количество чисел на отрезке [10,99]  = {howManyNumb}");

@@ -3,52 +3,41 @@
 
 // [345, 897, 568, 234] -> 2
 
-Console.Clear();
-Console.Write("Введите длинну массива: ");
-int sizeArr = int.Parse(Console.ReadLine());
 
-int[] CreateArrayRndInt(int sizeArray)
+int[] array = new int[12];
+void Array(int[] massivRND)
 {
-    int[] array = new int[sizeArray];
-    Random rnd = new Random();
-
-    for (int i = 0; i < sizeArray; i++)
+    for (int i = 0; i < massivRND.Length; i++)
     {
-        array[i] = rnd.Next(100, 1000);
-    }
-    return array;
-}
-
-int EvenArrayNumbers(int[] array)
-{
-    int count = 0;
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] % 2 == 0)
-        {
-            count++;
-        }
-        else
-        {
-            count = count;
-        }
-    }
-    return count;
-}
-
-void PrintArray(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (i == 0) Console.Write("Массив [");
-        if (i < array.Length - 1) Console.Write(array[i] + ",");
-        else Console.WriteLine(array[i] + "]");
-
+        massivRND[i] = new Random().Next(100, 1000);
     }
 }
 
-int[] array = CreateArrayRndInt(sizeArr);
-PrintArray(array);
-int resultCount = EvenArrayNumbers(array);
-Console.WriteLine($"Количество чётных чисел: {resultCount}");
-Console.WriteLine("\b");
+
+int HowManyChet(int[] arr)
+{
+    int chetn = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] % 2 == 0) chetn = chetn+1;
+    }
+    return chetn;
+}
+
+void Print(int[] massivRND)
+{
+    int i = 0;
+    Console.Write("[");
+    while (i < massivRND.Length)
+    {
+        Console.Write($"{massivRND[i]} ");
+        i++;
+    }
+    Console.Write("]");
+}
+
+Array(array);
+Print(array);
+Console.WriteLine();
+int howManyChet = HowManyChet(array);
+Console.WriteLine($"Количество четных чисел = {howManyChet}");

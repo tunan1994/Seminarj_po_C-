@@ -4,70 +4,31 @@
 // [1 2 3 4 5] -> 5 8 3
 // [6 7 3 6] -> 36 21
 
-Console.Clear();
 
-Console.WriteLine("Чтобы создать массив следуйте инструкциям!");
-
-Console.Write("Введите длинну массива: ");
-int sizeArr = int.Parse(Console.ReadLine());
-
-Console.Write("Введите минимальное значение элементов массива: ");
-int min = int.Parse(Console.ReadLine());
-
-Console.Write("Введите максимальное значение элементов массива: ");
-int max = int.Parse(Console.ReadLine());
-
-int[] CreateArrayRndInt(int sizeArray, int minimal, int maximum)
+int[] array = new int[9];
+void Array(int[] massivRND)
 {
-    int[] array = new int[sizeArray];
-    Random rnd = new Random();
-
-    for (int i = 0; i < sizeArray; i++)
+    for (int i = 0; i < massivRND.Length; i++)
     {
-        array[i] = rnd.Next(minimal, maximum + 1);
+        massivRND[i] = new Random().Next(0, 10);
     }
-    return array;
 }
 
-int[] GetResultArray(int[] array)
+int[] Proizvedenie(int[] array)
 {
-    int firstArryLength;
-    if (array.Length % 2 == 0)
+    int j = 0;
+    if (array.Length % 2 == 0) j = array.Length / 2;
+    else j = array.Length / 2 + 1;
+    int[] newArr = new int[j];
+    for (int i = 0; i < newArr.Length; i++)
     {
-        firstArryLength = array.Length / 2;
+        newArr[i] = array[i] * array[array.Length - 1 - i];
     }
-
-    else
-    {
-        firstArryLength = (array.Length - 1) / 2 + 1;
-    }
-
-    var firstArray = new int[firstArryLength];
-    for (int i = 0; i <firstArryLength; i++)
-    {
-        firstArray[i] = array[i];
-    }
-    var secondArray = new int[array.Length / 2];
-    for (int i = 0; i < array.Length/2; i++)
-    {
-        secondArray[i] = array[array.Length - i - 1];
-    }
-
-    var resultArray = new int[firstArryLength];
-    for (int i = 0; i < secondArray.Length; i++)
-    {
-        resultArray[i] = firstArray[i] * secondArray[i];
-    }
-
-    if (firstArryLength != secondArray.Length)
-    {
-        resultArray[firstArryLength - 1] = firstArray[firstArryLength - 1];
-    }
-
-    return resultArray;
+    if (array.Length % 2 > 0) newArr[j - 1] = array[j - 1];
+    return newArr;
 }
 
-void PrintArray(int[] array)
+void Print(int[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
@@ -79,8 +40,8 @@ void PrintArray(int[] array)
 }
 
 
-int[] array = CreateArrayRndInt(sizeArr, min, max);
-PrintArray(array);
+Array(array);
+Print(array);
 Console.WriteLine();
-var resultArray = GetResultArray(array);
-PrintArray(resultArray);
+int[] proizvedenie = Proizvedenie(array);
+Print(proizvedenie);

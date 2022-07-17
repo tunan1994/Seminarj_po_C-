@@ -3,39 +3,27 @@
 // [3, 7, 23, 12] -> 19
 // [-4, -6, 89, 6] -> 0
 
-Console.Clear();
-Console.Write("Введите длинну массива: ");
-int sizeArr = int.Parse(Console.ReadLine());
 
-Console.Write("Введите минимальное значение элементов массива: ");
-int min = int.Parse(Console.ReadLine());
-
-Console.Write("Введите максимальное значение элементов массива: ");
-int max = int.Parse(Console.ReadLine());
-
-int[] CreateArrayRndInt(int sizeArray, int minimal, int maximum)
+int[] array = new int[12];
+void Array(int[] massivRND)
 {
-    int[] array = new int[sizeArray];
-    Random rnd = new Random();
-
-    for (int i = 0; i < sizeArray; i++)
+    for (int i = 0; i < massivRND.Length; i++)
     {
-        array[i] = rnd.Next(minimal, maximum + 1);
+        massivRND[i] = new Random().Next(0, 1000);
     }
-    return array;
 }
 
-int SumAddArrayNumbers(int[] array)
+int SumNeChetnPosition (int[] array)
 {
-    int sumAddArrNum = 0;
+    int num = 0;
     for (int i = 1; i < array.Length; i=i+2)
     {
-        sumAddArrNum = sumAddArrNum + array[i];
+        num = num + array[i];
     }
-    return sumAddArrNum;
+    return num;
 }
 
-void PrintArray(int[] array)
+void Print(int[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
@@ -46,8 +34,8 @@ void PrintArray(int[] array)
     }
 }
 
-int[] array = CreateArrayRndInt(sizeArr, min, max);
-PrintArray(array);
-int resultSum = SumAddArrayNumbers(array);
-Console.WriteLine($"Сумма элементов, стоящих на нечётных позициях: {resultSum}");
-Console.WriteLine("\b");
+Array(array);
+Print(array);
+Console.WriteLine();
+int sumNeChetnPosition = SumNeChetnPosition(array);
+Console.WriteLine($"Сумму элементов, стоящих на нечётных позициях = {sumNeChetnPosition}");
