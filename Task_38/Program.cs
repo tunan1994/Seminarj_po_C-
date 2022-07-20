@@ -38,4 +38,4 @@ double Razniza(double[] array)
 Array(array);
 Print(array);
 double razniza = Razniza(array);
-Console.WriteLine($"Разница между max и min  = {razniza}");
+Console.WriteLine($"Разница между max и min  = {razniza}"); 
