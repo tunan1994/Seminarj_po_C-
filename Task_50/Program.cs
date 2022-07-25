@@ -57,9 +57,9 @@ void FindElementIJ(int[,] arr, int index0, int index1)
             }
             if (index0 > arr.GetLength(0) || index1 > arr.GetLength(1))
             {
-                Console.WriteLine("Такого элемента в массиве нет");    // Объясните пожалуйста почему эта
-                break;                                                // строчка печатается несколько раз,
-            }                                                         // хоть и есть?
+                Console.WriteLine("Такого элемента в массиве нет");    
+                break;                                                
+            }                                                       
         }
     }
 }
