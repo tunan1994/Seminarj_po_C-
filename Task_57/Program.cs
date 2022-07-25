@@ -77,5 +77,4 @@ int[] ConvertToOneDimensionArray(int[,] in_array)
     }
 
     return arrayForMethod;
-
 }
